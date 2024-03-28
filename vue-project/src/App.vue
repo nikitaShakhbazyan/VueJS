@@ -1,35 +1,34 @@
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-  </header>
+  <h2>{{ info }}</h2>
+  <p>{{ pTag }}</p>
 
+  <button @click="userData()" type="button">Send</button>
 </template>
 
+<script>
+  export default {
+      data() {
+        return {
+          info : 'Title',
+          pTag : "Lorem, ipsum dolor sit amet consectetur adipisicing elit. A, vel."
+        }
+      },
+      methods : {
+        userData() {
+          this.info='this inf'
+          this.pTag = 'Another p tag'
+        }
+      }
+  }
+</script>
+
 <style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
+  h2 {
+    color: green;
+    font-weight: bold;
+  }
+  p{
+    color: rebeccapurple;
   }
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
 </style>
