@@ -1,34 +1,26 @@
 <template>
-  <h2>{{ info }}</h2>
-  <p>{{ pTag }}</p>
-
-  <button @click="userData()" type="button">Send</button>
+<input type="text" v-model="username" placeholder="Name">
+<input type="password" v-model="userPass" placeholder="Pass">
+<input type="email" v-model="userEmail" name="email" placeholder="Email">
+<p><b> {{ username }} </b> this is name</p>
+<p> <b>{{ userPass }}</b> this is pass</p>
+<p> <b>{{ userEmail }} </b> this is email</p>
 </template>
 
 <script>
   export default {
       data() {
         return {
-          info : 'Title',
-          pTag : "Lorem, ipsum dolor sit amet consectetur adipisicing elit. A, vel."
+         username : '',
+         userPass : '',
+         userEmail : ''
         }
-      },
-      methods : {
-        userData() {
-          this.info='this inf'
-          this.pTag = 'Another p tag'
-        }
+      },methods : {
       }
   }
 </script>
 
 <style scoped>
-  h2 {
-    color: green;
-    font-weight: bold;
-  }
-  p{
-    color: rebeccapurple;
-  }
+
 
 </style>
