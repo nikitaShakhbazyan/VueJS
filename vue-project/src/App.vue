@@ -5,10 +5,6 @@
 <button @click="sendData()">Send</button>
 <p className="err">{{ err }}</p>
 
-<div v-for="(e,index) in users" :key="index">
-  <h3>{{ e.name }}</h3>
-  <p>{{ e.pass }}, {{ e.email }}</p>
-</div>
 <div v-if="users.length == 0">
   there are no users
 </div>
@@ -20,10 +16,14 @@
 There are users
 </div>
 
+<User v-for="(el,index) in users" :key="index" :user="el"/>
+
 </template>
 
 <script>
+import User from './components/User.vue';
   export default {
+    components :{User},
       data() {
         return {
          users : [],
