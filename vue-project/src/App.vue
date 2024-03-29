@@ -1,15 +1,22 @@
+<script>
+  export default {
+    data() {
+      return {
+        city:'',
+      }
+    }
+  }
+</script>
+
 <template>
   <div className="wrapper">
     <h1>The Weather App</h1>
-    <p>Check the weather in your city!</p>
-    <input type="text" placeholder="Type city">
-    <button>Get Inforamtion </button>
+    <p>Check the weather {{ city == "" ? "in your city" : "'"+city+"'"}} </p>
+    <input type="text" v-model="city" placeholder="Type city">
+    <button v-if="city != ''">Get Information</button>
+    <button disabled v-else>Type city name</button>
   </div>
 </template>
-
-<script>
-
-</script>
 
 <style scoped>
 .wrapper {
@@ -57,5 +64,10 @@
 
 .wrapper button:hover {
   transform: scale(1.1) translateY(-5px)
+}
+
+.wrapper button:disabled {
+  background: #685725;
+  cursor: not-allowed;
 }
 </style>
