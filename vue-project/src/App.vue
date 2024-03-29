@@ -11,12 +11,11 @@
 <div v-else-if="users.length == 1">
   There is only 1 user
 </div>
-
 <div v-else>
 There are users
 </div>
 
-<User v-for="(el,index) in users" :key="index" :user="el"/>
+<User v-for="(el, index) in users" :key="index" :user="el" :deleteUser="deleteUser" :index="index" />
 
 </template>
 
@@ -45,6 +44,9 @@ import User from './components/User.vue';
             pass : this.userPass,
             email : this.userEmail,
           })
+        },
+        deleteUser(index) {
+          this.users.splice(index,1)
         }
       }
   }

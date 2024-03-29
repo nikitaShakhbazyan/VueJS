@@ -3,6 +3,7 @@
 <div>
   <h3>{{ user.name }}</h3>
   <p>{{ user.pass }}, {{ user.email }}</p>
+  <button @click="deleteUser">Delete</button>
 </div>
 
 </template>
@@ -13,6 +14,14 @@ export default  {
         user : {
             type: Object,
             required:true
+        },
+        deleteUser : {
+            type:Function,
+            required:true
+        },
+        index: {
+            type: Number,
+            required: true
         }
     }
 }
