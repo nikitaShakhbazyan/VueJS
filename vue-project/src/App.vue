@@ -1,9 +1,12 @@
 <script>
+  import axios from 'axios'
+
   export default {
     data() {
       return {
         city:'',
-        err : ''
+        err : '',
+        info:null
       }
     },
     computed : {
@@ -13,24 +16,31 @@
     },
     methods : {
       getWeather () {
-        if(this.city.trim().length < 5) {
-          this.err = "City consists at least 5 characters"
+        if(this.city.trim().length < 3) {
+          this.err = "City consists at least 3 characters"
           return false
         }
           this.err = ''
+
+          axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${this.city}&units=metric&appid=10cdd5e70108c087661ce63737780047`)
+          .then((res) => this.info = res.data)
       }
     }
   }
 </script>
 
 <template>
-  <div className="wrapper">
+  <div class="wrapper">
     <h1>The Weather App</h1>
     <p>Check the weather {{ city == "" ? "in your city" : cityName}} </p>
     <input type="text" v-model="city" placeholder="Type city">
     <button v-if="city != ''" @click="getWeather()">Get Information</button>
     <button disabled v-else>Type city name</button>
-    <p className="err">{{ err }}</p>
+    <p class="err">{{ err }}</p>
+    <div class="apiDiv">
+    <p v-if="info != null">Temperature is : {{ info.main.temp }} degrees</p>
+    <p v-if="info != null"> Feels like : {{ info.main.feels_like }} degrees</p>
+  </div>
   </div>
 </template>
 
