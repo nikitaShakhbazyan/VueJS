@@ -4,6 +4,11 @@
       return {
         city:'',
       }
+    },
+    computed : {
+      cityName () {
+        return "'" + this.city + "'"
+      }
     }
   }
 </script>
@@ -11,7 +16,7 @@
 <template>
   <div className="wrapper">
     <h1>The Weather App</h1>
-    <p>Check the weather {{ city == "" ? "in your city" : "'"+city+"'"}} </p>
+    <p>Check the weather {{ city == "" ? "in your city" : cityName}} </p>
     <input type="text" v-model="city" placeholder="Type city">
     <button v-if="city != ''">Get Information</button>
     <button disabled v-else>Type city name</button>
