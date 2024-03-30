@@ -38,8 +38,15 @@
     <button disabled v-else>Type city name</button>
     <p class="err">{{ err }}</p>
     <div class="apiDiv">
-    <p v-if="info != null">Temperature is : {{ info.main.temp }} degrees</p>
-    <p v-if="info != null"> Feels like : {{ info.main.feels_like }} degrees</p>
+    <p v-if="info != null">Temperature is : {{ info.main.temp }} ℃</p>
+    <p v-if="info != null"> Feels like : {{ info.main.feels_like }} ℃</p>
+    <p v-if="info != null"> Temperature min : {{ info.main.temp_min }} ℃</p>
+    <p v-if="info != null"> Temperature max : {{ info.main.temp_max }} ℃</p>
+    <p v-if="info != null"> Pressure is : {{ info.main.pressure }} hPa</p>
+    <p v-if="info != null"> Humidity : {{ info.main.humidity }} %</p>
+    <p v-if="info != null"> Wind speed is : {{ info.wind.speed }} m/s and wind direction is {{ info.wind.deg }} deg</p>
+
+
   </div>
   </div>
 </template>
@@ -70,12 +77,13 @@
 .wrapper input {
   margin-top: 30px;
   background-color: transparent;
-  border: 0px;
+  border: 1px solid gold;
   border-bottom: 2px solid #110813;
   color: #fcfcfc;
   font-size: 14px;
   padding:5px 8px;
   outline: none;
+  width: 200px;
 }
 .wrapper input:focus {
   border-bottom-color: #6e2d7d;
@@ -100,4 +108,23 @@
   background: #685725;
   cursor: not-allowed;
 }
+
+@media (max-width: 880px) {
+  
+  .wrapper {
+  width: 400px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 50px;
+  background-color: #1f0f24;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+}
+
 </style>
