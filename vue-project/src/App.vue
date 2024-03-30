@@ -112,7 +112,7 @@
 @media (max-width: 880px) {
   
   .wrapper {
-  width: 400px;
+  width: 300px;
   height: 600px;
   display: flex;
   flex-direction: column;
