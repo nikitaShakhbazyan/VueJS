@@ -100,4 +100,23 @@
   background: #685725;
   cursor: not-allowed;
 }
+
+@media (max-width: 880px) {
+  
+  .wrapper {
+  width: 250px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 50px;
+  background-color: #1f0f24;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+}
+
 </style>
